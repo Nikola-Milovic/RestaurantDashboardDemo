@@ -3,6 +3,7 @@ plugins {
     id(GradlePluginId.KOTLIN_ANDROID)
     id(GradlePluginId.KOTLIN_ANDROID_EXTENSIONS)
     id(GradlePluginId.KOTLIN_KAPT)
+    id("kotlin-android")
 }
 
 android {
@@ -40,9 +41,9 @@ android {
 }
 
 dependencies {
-    api(LibraryDependency.ANDROID_LEGACY_SUPPORT)
-    api(LibraryDependency.LIFECYCLE_EXTENSIONS)
-    api(LibraryDependency.LIFECYCLE_VIEW_MODEL_KTX)
+    implementation(LibraryDependency.ANDROID_LEGACY_SUPPORT)
+    implementation(LibraryDependency.LIFECYCLE_EXTENSIONS)
+    implementation(LibraryDependency.LIFECYCLE_VIEW_MODEL_KTX)
 
     api(LibraryDependency.NAVIGATION_FRAGMENT_KTX)
     api(LibraryDependency.NAVIGATION_UI_KTX)

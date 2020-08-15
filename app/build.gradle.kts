@@ -64,5 +64,7 @@ dependencies {
 
     implementation(LibraryDependency.GOOGLE_ANALYTICS)
 
+    implementation(project(":menu"))
+
     addTestDependencies()
 }
