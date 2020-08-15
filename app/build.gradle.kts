@@ -62,7 +62,7 @@ dependencies {
 
     api(LibraryDependency.SUPPORT_CONSTRAINT_LAYOUT)
 
-    implementation("com.google.firebase:firebase-analytics:17.2.2")
+    implementation(LibraryDependency.GOOGLE_ANALYTICS)
 
     addTestDependencies()
 }
