@@ -1,7 +1,3 @@
-import com.android.build.gradle.internal.dsl.BaseFlavor
-import com.android.build.gradle.internal.dsl.DefaultConfig
-
-
 plugins {
     id(GradlePluginId.ANDROID_APPLICATION)
     id(GradlePluginId.KOTLIN_ANDROID)
@@ -62,7 +58,7 @@ dependencies {
 
     api(LibraryDependency.SUPPORT_CONSTRAINT_LAYOUT)
 
-    implementation(LibraryDependency.GOOGLE_ANALYTICS)
+    implementation(LibraryDependency.FIREBASE_ANALYTICS)
 
     api(LibraryDependency.KOIN_ANDROID)
     api(LibraryDependency.KOIN_ANDROID_EXTENSION)

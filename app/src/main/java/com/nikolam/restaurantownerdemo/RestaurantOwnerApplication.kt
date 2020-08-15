@@ -1,6 +1,7 @@
 package com.nikolam.restaurantownerdemo
 
 import android.app.Application
+import com.nikolam.menu.di.dataModule
 import com.nikolam.menu.di.viewmodelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -13,7 +14,7 @@ class RestaurantOwnerApplication : Application(){
         startKoin{
             androidLogger()
             androidContext(this@RestaurantOwnerApplication)
-            modules(viewmodelModule)
+            modules(viewmodelModule, dataModule)
         }
     }
 }
