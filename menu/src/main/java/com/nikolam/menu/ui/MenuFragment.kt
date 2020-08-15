@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nikolam.menu.R
+import org.koin.android.ext.android.inject
 
 class MenuFragment : Fragment() {
 
@@ -14,7 +15,7 @@ class MenuFragment : Fragment() {
         fun newInstance() = MenuFragment()
     }
 
-    private lateinit var viewModel: MenuViewModel
+    private val viewModel: MenuViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,11 +23,4 @@ class MenuFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.menu_fragment, container, false)
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MenuViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

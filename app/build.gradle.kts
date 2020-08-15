@@ -64,6 +64,11 @@ dependencies {
 
     implementation(LibraryDependency.GOOGLE_ANALYTICS)
 
+    api(LibraryDependency.KOIN_ANDROID)
+    api(LibraryDependency.KOIN_ANDROID_EXTENSION)
+    api(LibraryDependency.KOIN_ANDROID_SCOPE)
+    api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
+
     implementation(project(":menu"))
 
     addTestDependencies()

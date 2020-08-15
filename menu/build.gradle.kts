@@ -56,5 +56,10 @@ dependencies {
 
     api(LibraryDependency.TIMBER)
 
+    api(LibraryDependency.KOIN_ANDROID)
+    api(LibraryDependency.KOIN_ANDROID_EXTENSION)
+    api(LibraryDependency.KOIN_ANDROID_SCOPE)
+    api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
+
     addTestDependencies()
 }
