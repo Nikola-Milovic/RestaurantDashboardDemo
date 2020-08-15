@@ -62,7 +62,14 @@ dependencies {
 
     api(LibraryDependency.SUPPORT_CONSTRAINT_LAYOUT)
 
-    implementation("com.google.firebase:firebase-analytics:17.2.2")
+    implementation(LibraryDependency.GOOGLE_ANALYTICS)
+
+    api(LibraryDependency.KOIN_ANDROID)
+    api(LibraryDependency.KOIN_ANDROID_EXTENSION)
+    api(LibraryDependency.KOIN_ANDROID_SCOPE)
+    api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
+
+    implementation(project(":menu"))
 
     addTestDependencies()
 }
