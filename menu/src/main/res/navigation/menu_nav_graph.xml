@@ -7,7 +7,19 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.nikolam.menu.ui.MenuFragment"
+        android:name="com.nikolam.menu.ui.menu.MenuFragment"
         android:label="menu_fragment"
-        tools:layout="@layout/menu_fragment" />
+        tools:layout="@layout/menu_fragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_menuItemDetailFragment2"
+            app:destination="@id/menuItemDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuItemDetailFragment"
+        android:name="com.nikolam.menu.ui.detail.ItemDetailFragment"
+        android:label="MenuItemDetailFragment" >
+        <argument
+            android:name="MenuItemID"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -1,7 +1,7 @@
 package com.nikolam.addnewitem.data
 
-import com.nikolam.core.model.Food
+import com.nikolam.core.model.MenuItem
 
 interface IAddNewItemRepository {
-    fun addFoodItem(food: Food)
+    fun addFoodItem(menuItem: MenuItem)
 }

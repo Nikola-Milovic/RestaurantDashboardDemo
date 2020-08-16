@@ -1,3 +1,5 @@
+import com.pinterest.ktlint.main
+
 plugins {
     id(GradlePluginId.ANDROID_APPLICATION)
     id(GradlePluginId.KOTLIN_ANDROID)
@@ -41,6 +43,7 @@ android {
     }
 
 
+
 }
 
 dependencies {
@@ -71,3 +74,8 @@ dependencies {
 
     addTestDependencies()
 }
+
+//sourceSets["main"].java {
+//    srcDirs("build/generated/source/navigation-args")
+//}
+//

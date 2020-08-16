@@ -1,7 +1,7 @@
 package com.nikolam.addnewitem.data.network
 
-import com.nikolam.core.model.Food
+import com.nikolam.core.model.MenuItem
 
 interface NetworkDataSource {
-    fun saveFoodItem(food : Food)
+    fun saveFoodItem(food : MenuItem)
 }

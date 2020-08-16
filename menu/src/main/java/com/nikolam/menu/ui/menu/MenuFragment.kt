@@ -1,19 +1,20 @@
-package com.nikolam.menu.ui
+package com.nikolam.menu.ui.menu
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.nikolam.core.utils.DatabindingFragment
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.MenuFragmentBinding
-import com.nikolam.menu.ui.adapter.MenuAdapter
+import com.nikolam.menu.ui.menu.adapter.MenuAdapter
 import org.koin.android.ext.android.inject
 
 
-class MenuFragment : DatabindingFragment() {
+class MenuFragment : Fragment() {
 
     lateinit var binding : MenuFragmentBinding
 
@@ -25,7 +26,8 @@ class MenuFragment : DatabindingFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return binding<MenuFragmentBinding>(inflater, R.layout.menu_fragment, container).apply {
+        binding = DataBindingUtil.inflate(inflater, R.layout.menu_fragment, container, false)
+        binding.apply {
 
             val layoutMana=
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -37,7 +39,9 @@ class MenuFragment : DatabindingFragment() {
             this.adapter = menuAdapter
             viewModel = viewModel
             lifecycleOwner = this@MenuFragment
-        }.root
+        }
+
+        return binding.root
     }
 
     override fun onStart() {

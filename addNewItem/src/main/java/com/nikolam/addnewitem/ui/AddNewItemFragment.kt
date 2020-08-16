@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.nikolam.addnewitem.R
-import com.nikolam.core.model.Food
+import com.nikolam.core.model.MenuItem
 import org.koin.android.ext.android.inject
 
 class AddNewItemFragment : Fragment() {
@@ -28,12 +27,12 @@ class AddNewItemFragment : Fragment() {
 
         view.findViewById<MaterialButton>(R.id.save_button).setOnClickListener {
 
-            var food : Food = Food()
+            var menuItem : MenuItem = MenuItem()
 
-            food.name = view.findViewById<TextInputEditText>(R.id.name_textInput).text.toString()
-            food.price = view.findViewById<TextInputEditText>(R.id.price_textInput).text.toString().toInt()
+            menuItem.name = view.findViewById<TextInputEditText>(R.id.name_textInput).text.toString()
+            menuItem.price = view.findViewById<TextInputEditText>(R.id.price_textInput).text.toString().toInt()
 
-            viewModel.addFoodItem(food)
+            viewModel.addFoodItem(menuItem)
         }
 
     }

@@ -1,19 +1,21 @@
-package com.nikolam.menu.ui.adapter
+package com.nikolam.menu.ui.menu.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.nikolam.menu.R
-import com.nikolam.core.model.Food
+import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.databinding.MenuItemBinding
 import com.nikolam.core.utils.bindings
+import com.nikolam.menu.ui.menu.MenuFragmentDirections
 
 
 class MenuAdapter() :
     RecyclerView.Adapter<MenuAdapter.FoodViewHolder>() {
 
-    private var menuItems : ArrayList<Food> = arrayListOf()
+    private var menuItems : ArrayList<MenuItem> = arrayListOf()
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
@@ -35,7 +37,7 @@ class MenuAdapter() :
         }
     }
 
-    fun addMenuItems(menuItemsList : ArrayList<Food>) {
+    fun addMenuItems(menuItemsList : ArrayList<MenuItem>) {
         menuItems.clear()
         menuItems.addAll(menuItemsList)
         this.notifyDataSetChanged()
@@ -48,13 +50,17 @@ class MenuAdapter() :
 
     inner class FoodViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-        private lateinit var data: Food
+        private lateinit var data: MenuItem
         private val binding: MenuItemBinding by bindings(view)
 
         fun bindData(data: Any) {
-            if (data is Food) {
+            if (data is MenuItem) {
                 this.data = data
                 drawItemUI()
+                view.setOnClickListener {
+                    val directions = MenuFragmentDirections.actionMenuFragmentToMenuItemDetailFragment2(data.foodID)
+                    view.findNavController().navigate(directions)
+                }
             }
         }
 

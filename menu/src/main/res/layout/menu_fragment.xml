@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type= "com.nikolam.menu.ui.MenuViewModel" />
+            type= "com.nikolam.menu.ui.menu.MenuViewModel" />
 
         <variable
             name="adapter"

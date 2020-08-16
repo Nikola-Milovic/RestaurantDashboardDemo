@@ -1,11 +1,11 @@
-package com.nikolam.menu.ui
+package com.nikolam.menu.ui.menu
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikolam.menu.data.IMenuRepository
-import com.nikolam.core.model.Food
+import com.nikolam.core.model.MenuItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
@@ -13,18 +13,18 @@ import timber.log.Timber
 
 class MenuViewModel(private val repository : IMenuRepository) : ViewModel() {
 
-    val menuItemsLiveData : MutableLiveData<ArrayList<Food>> = MutableLiveData()
-    val _menuItemsLiveData : LiveData<ArrayList<Food>>
+    val menuItemsLiveData : MutableLiveData<ArrayList<MenuItem>> = MutableLiveData()
+    val _menuItemsLiveData : LiveData<ArrayList<MenuItem>>
         get() = menuItemsLiveData
 
 
 
     fun fetchMenuItems() {
-        var foodList = arrayListOf<Food>()
+        var foodList = arrayListOf<MenuItem>()
         viewModelScope.launch(Dispatchers.IO) {
             repository.fetchMenuItems().collect{ value ->
                 Timber.d(value.toString())
-                foodList.add(value)
+                foodList.add(value as MenuItem)
             }
 
             menuItemsLiveData.postValue(foodList)

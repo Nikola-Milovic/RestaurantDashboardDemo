@@ -1,3 +1,3 @@
 package com.nikolam.core.model
 
-interface MenuItem
+data class MenuItem(var name : String = "", var price : Int = 0, var foodID : String = "")

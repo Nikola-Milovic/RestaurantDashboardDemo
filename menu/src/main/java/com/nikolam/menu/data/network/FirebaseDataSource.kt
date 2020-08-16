@@ -1,8 +1,9 @@
 package com.nikolam.menu.data.network
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.nikolam.core.model.Food
+import com.nikolam.core.model.MenuItem
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
@@ -11,13 +12,13 @@ import timber.log.Timber
 class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : NetworkDataSource{
 
     @ExperimentalCoroutinesApi
-    override fun fetchMenuItems(): Flow<Food> = callbackFlow{
+    override fun fetchMenuItems(): Flow<MenuItem> = callbackFlow{
         firebaseFirestore.collection("menu_items")
                 .get()
                 .addOnSuccessListener { documents ->
                     try {
                         for (document in documents) {
-                            val doc = document.toObject(Food::class.java)
+                            val doc = document.toObject(MenuItem::class.java)
                             doc.foodID = document.id
                             offer(doc)
                         }
@@ -34,6 +35,31 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
             }
         awaitClose { Timber.d("Closed") }
     }
+
+    @ExperimentalCoroutinesApi
+    override fun fetchMenuItem(itemID: String) : Flow<MenuItem> = callbackFlow {
+        val docRef =  firebaseFirestore.collection("menu_items").document(itemID)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                val doc = document.toObject(MenuItem::class.java)
+                if (doc != null) {
+                    doc?.foodID = document.id
+                    offer(doc!!)
+                } else {
+                    cancel()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Timber.d("get failed with $exception")
+                cancel()
+            }.addOnCompleteListener {
+                cancel()
+            }
+
+        awaitClose{ Timber.d("Closed") }
+    }
+
+
 }
 
 
