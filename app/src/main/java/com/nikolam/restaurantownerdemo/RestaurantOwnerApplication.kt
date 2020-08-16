@@ -6,6 +6,9 @@ import com.nikolam.menu.di.viewmodelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import timber.log.Timber
+import timber.log.Timber.DebugTree
+
 
 class RestaurantOwnerApplication : Application(){
     override fun onCreate() {
@@ -15,6 +18,12 @@ class RestaurantOwnerApplication : Application(){
             androidLogger()
             androidContext(this@RestaurantOwnerApplication)
             modules(viewmodelModule, dataModule)
+        }
+
+        // This will initialise Timber
+        // This will initialise Timber
+        if (BuildConfig.DEBUG) {
+            Timber.plant(DebugTree())
         }
     }
 }
