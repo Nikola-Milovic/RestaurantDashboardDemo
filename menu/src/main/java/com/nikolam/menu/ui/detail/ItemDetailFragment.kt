@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.ItemDetailFragmentBinding
 import org.koin.android.ext.android.inject
@@ -17,6 +18,8 @@ import timber.log.Timber
 class ItemDetailFragment : Fragment() {
 
     lateinit var binding : ItemDetailFragmentBinding
+
+    lateinit var itemID : String
 
     private val detailViewModel: ItemDetailViewModel by inject()
 
@@ -46,8 +49,21 @@ class ItemDetailFragment : Fragment() {
     }
 
     private fun observeData(){
+
+        binding.saveButtonDetail.setOnClickListener {
+            val item = MenuItem()
+
+            item.name = binding.nameTextInputDetail.text.toString()
+            item.price = binding.priceTextInputDetail.text.toString().toInt()
+
+            detailViewModel.updateItem(itemID, item)
+        }
+
+
+
         detailViewModel._itemLiveData.observe(viewLifecycleOwner, Observer {
            binding.item = it
+            itemID = it.itemID
             Timber.d(it.toString())
         })
     }

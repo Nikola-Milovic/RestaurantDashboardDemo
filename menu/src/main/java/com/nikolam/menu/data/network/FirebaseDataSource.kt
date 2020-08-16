@@ -19,7 +19,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
                     try {
                         for (document in documents) {
                             val doc = document.toObject(MenuItem::class.java)
-                            doc.foodID = document.id
+                            doc.itemID = document.id
                             offer(doc)
                         }
                     } catch (e: Exception) {
@@ -43,7 +43,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
             .addOnSuccessListener { document ->
                 val doc = document.toObject(MenuItem::class.java)
                 if (doc != null) {
-                    doc?.foodID = document.id
+                    doc?.itemID = document.id
                     offer(doc!!)
                 } else {
                     cancel()
@@ -59,7 +59,15 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
         awaitClose{ Timber.d("Closed") }
     }
 
+    override fun updateMenuItem(itemID: String, updatedItem : MenuItem) {
+        val itemToSave = hashMapOf(
+            "name" to updatedItem.name,
+            "price" to updatedItem.price
+        )
 
+        val docRef =  firebaseFirestore.collection("menu_items").document(itemID)
+        docRef.set(itemToSave)
+    }
 }
 
 

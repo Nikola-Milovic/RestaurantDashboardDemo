@@ -58,7 +58,7 @@ class MenuAdapter() :
                 this.data = data
                 drawItemUI()
                 view.setOnClickListener {
-                    val directions = MenuFragmentDirections.actionMenuFragmentToMenuItemDetailFragment2(data.foodID)
+                    val directions = MenuFragmentDirections.actionMenuFragmentToMenuItemDetailFragment2(data.itemID)
                     view.findNavController().navigate(directions)
                 }
             }

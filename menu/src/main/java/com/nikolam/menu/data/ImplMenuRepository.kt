@@ -14,4 +14,8 @@ class ImplMenuRepository(private val firebaseDataSource : NetworkDataSource): IM
         return firebaseDataSource.fetchMenuItem(itemID)
     }
 
+    override fun updateMenuItem(itemID: String, updatedItem : MenuItem)  {
+        firebaseDataSource.updateMenuItem(itemID, updatedItem)
+    }
+
 }

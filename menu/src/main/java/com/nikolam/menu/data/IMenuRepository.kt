@@ -8,4 +8,6 @@ interface IMenuRepository {
     fun fetchMenuItems() : Flow<MenuItem>
 
     fun fetchMenuItem(itemID : String) : Flow<MenuItem>
+
+    fun updateMenuItem(itemID: String, updatedItem : MenuItem)
 }

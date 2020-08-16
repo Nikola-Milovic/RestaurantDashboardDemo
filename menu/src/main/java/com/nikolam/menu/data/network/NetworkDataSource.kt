@@ -9,4 +9,6 @@ interface NetworkDataSource {
 
     fun fetchMenuItem(itemID : String) : Flow<MenuItem>
 
+    fun updateMenuItem(itemID: String, updatedItem : MenuItem)
+
 }

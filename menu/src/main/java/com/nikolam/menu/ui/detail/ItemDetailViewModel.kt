@@ -25,4 +25,8 @@ class ItemDetailViewModel(private val repository : IMenuRepository) : ViewModel(
             }
         }
     }
+
+    fun updateItem(itemID : String, item : MenuItem){
+        repository.updateMenuItem(itemID, item)
+    }
 }

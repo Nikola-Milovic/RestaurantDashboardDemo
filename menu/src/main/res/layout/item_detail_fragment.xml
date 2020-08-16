@@ -22,6 +22,45 @@
         android:backgroundTint="#F8F8F8">
 
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_textInput_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            android:tooltipText="Uneti ime hrane"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.096"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_textInput_detail"
+            app:layout_constraintVertical_bias="0.097"
+            tools:text="@tools:sample/cities" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/price_textInput_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(item.price)}"
+            android:tooltipText="Uneti ime hrane"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.092"
+            tools:text="@tools:sample/cities" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sacuvaj Promene"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_textInput_detail"
+            app:layout_constraintVertical_bias="0.868" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
