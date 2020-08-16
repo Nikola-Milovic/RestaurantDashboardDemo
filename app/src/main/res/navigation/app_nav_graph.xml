@@ -6,4 +6,10 @@
 
     <include app:graph="@navigation/menu_nav_graph" />
 
+
+    <fragment
+        android:id="@+id/addNewItemFragment"
+        android:name="com.nikolam.addnewitem.ui.AddNewItemFragment"
+        android:label="AddNewItemFragment" />
+
 </navigation>

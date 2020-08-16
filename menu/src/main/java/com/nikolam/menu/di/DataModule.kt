@@ -9,13 +9,6 @@ import org.koin.dsl.module
 
 val dataModule = module {
 
-    fun provideFirebaseFirestore(): FirebaseFirestore {
-        return FirebaseFirestore.getInstance()
-    }
-
-    single { provideFirebaseFirestore() }
-
-
     single<IMenuRepository>{ ImplMenuRepository(get()) }
 
     single<NetworkDataSource>{FirebaseDataSource(get())}

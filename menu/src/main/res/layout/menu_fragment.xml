@@ -20,7 +20,6 @@
         android:layout_height="match_parent"
         android:backgroundTint="#F8F8F8">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViews"
             adapter="@{adapter}"

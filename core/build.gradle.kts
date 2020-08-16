@@ -45,5 +45,7 @@ dependencies {
     api(LibraryDependency.KOIN_ANDROID_SCOPE)
     api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
 
+    api(LibraryDependency.FIREBASE_FIRESTORE)
+
     addTestDependencies()
 }

@@ -3,7 +3,6 @@ plugins {
     id(GradlePluginId.KOTLIN_ANDROID)
     id(GradlePluginId.KOTLIN_ANDROID_EXTENSIONS)
     id(GradlePluginId.KOTLIN_KAPT)
-    id(GradlePluginId.SAFE_ARGS)
     id("kotlin-android")
 }
 
@@ -37,8 +36,6 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
-
 }
 
 dependencies {
@@ -65,7 +62,9 @@ dependencies {
     api(LibraryDependency.FIREBASE_FIRESTORE)
 
     implementation(project(":core"))
-    implementation(project(":menuItemDetail"))
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
 
     addTestDependencies()
 }
