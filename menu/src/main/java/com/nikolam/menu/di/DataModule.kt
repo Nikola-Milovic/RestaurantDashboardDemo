@@ -18,6 +18,6 @@ val dataModule = module {
 
     single<IMenuRepository>{ ImplMenuRepository(get()) }
 
-    single<NetworkDataSource>{FirebaseDataSource()}
+    single<NetworkDataSource>{FirebaseDataSource(get())}
 
 }
