@@ -1,16 +1,11 @@
 package com.nikolam.menu.data.network
 
-import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
-import com.nikolam.menu.data.model.Food
-import com.nikolam.menu.utils.Result
-import kotlinx.coroutines.Dispatchers
+import com.nikolam.core.model.Food
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import timber.log.Timber
 
 class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : NetworkDataSource{
@@ -23,6 +18,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
                     try {
                         for (document in documents) {
                             val doc = document.toObject(Food::class.java)
+                            doc.foodID = document.id
                             offer(doc)
                         }
                     } catch (e: Exception) {

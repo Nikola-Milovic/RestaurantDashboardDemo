@@ -1,18 +1,15 @@
 plugins {
-    id(GradlePluginId.ANDROID_APPLICATION)
+    id(GradlePluginId.ANDROID_LIBRARY)
     id(GradlePluginId.KOTLIN_ANDROID)
     id(GradlePluginId.KOTLIN_ANDROID_EXTENSIONS)
     id(GradlePluginId.KOTLIN_KAPT)
-    id(GradlePluginId.SAFE_ARGS)
-    id(GradlePluginId.GOOGLE_SERVICES)
-
+    id("kotlin-android")
 }
 
 android {
     compileSdkVersion(AndroidConfig.COMPILE_SDK_VERSION)
 
     defaultConfig {
-        applicationId = AndroidConfig.ID
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
         buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
@@ -39,14 +36,12 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
-
 }
 
 dependencies {
-    api(LibraryDependency.ANDROID_LEGACY_SUPPORT)
-    api(LibraryDependency.LIFECYCLE_EXTENSIONS)
-    api(LibraryDependency.LIFECYCLE_VIEW_MODEL_KTX)
+    implementation(LibraryDependency.ANDROID_LEGACY_SUPPORT)
+    implementation(LibraryDependency.LIFECYCLE_EXTENSIONS)
+    implementation(LibraryDependency.LIFECYCLE_VIEW_MODEL_KTX)
 
     api(LibraryDependency.NAVIGATION_FRAGMENT_KTX)
     api(LibraryDependency.NAVIGATION_UI_KTX)
@@ -55,19 +50,21 @@ dependencies {
     api(LibraryDependency.RECYCLER_VIEW)
     api(LibraryDependency.MATERIAL)
     api(LibraryDependency.FRAGMENT_KTX)
-
     api(LibraryDependency.SUPPORT_CONSTRAINT_LAYOUT)
 
-    implementation(LibraryDependency.FIREBASE_ANALYTICS)
+    api(LibraryDependency.TIMBER)
 
     api(LibraryDependency.KOIN_ANDROID)
     api(LibraryDependency.KOIN_ANDROID_EXTENSION)
     api(LibraryDependency.KOIN_ANDROID_SCOPE)
     api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
 
-    implementation(project(":menu"))
-    implementation(project(":addNewItem"))
+    api(LibraryDependency.FIREBASE_FIRESTORE)
+
     implementation(project(":core"))
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
 
     addTestDependencies()
 }

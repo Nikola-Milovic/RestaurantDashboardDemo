@@ -1,4 +1,4 @@
-package com.nikolam.menu.utils
+package com.nikolam.core.utils
 
 
 sealed class Result<T> {

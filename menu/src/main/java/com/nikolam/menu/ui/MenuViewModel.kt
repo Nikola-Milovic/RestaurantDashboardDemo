@@ -1,12 +1,11 @@
 package com.nikolam.menu.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikolam.menu.data.IMenuRepository
-import com.nikolam.menu.data.model.Food
+import com.nikolam.core.model.Food
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect

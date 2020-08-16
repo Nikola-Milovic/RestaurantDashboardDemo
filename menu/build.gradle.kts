@@ -63,5 +63,7 @@ dependencies {
 
     api(LibraryDependency.FIREBASE_FIRESTORE)
 
+    implementation(project(":core"))
+
     addTestDependencies()
 }

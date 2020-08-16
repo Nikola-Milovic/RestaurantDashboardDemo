@@ -1,4 +1,4 @@
-package com.nikolam.menu.utils
+package com.nikolam.core.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

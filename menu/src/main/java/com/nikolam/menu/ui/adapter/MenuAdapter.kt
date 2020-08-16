@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nikolam.menu.R
-import com.nikolam.menu.data.model.Food
+import com.nikolam.core.model.Food
 import com.nikolam.menu.databinding.MenuItemBinding
-import com.nikolam.menu.utils.bindings
+import com.nikolam.core.utils.bindings
 
 
 class MenuAdapter() :
