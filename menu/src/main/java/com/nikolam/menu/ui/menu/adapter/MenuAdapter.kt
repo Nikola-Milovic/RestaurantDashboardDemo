@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nikolam.menu.R
 import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.databinding.MenuItemBinding
 import com.nikolam.core.utils.bindings
 import com.nikolam.menu.ui.menu.MenuFragmentDirections
+import java.security.cert.PKIXRevocationChecker
 
 
 class MenuAdapter() :
@@ -51,7 +53,9 @@ class MenuAdapter() :
     inner class FoodViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         private lateinit var data: MenuItem
-        private val binding: MenuItemBinding by bindings(view)
+        val binding: MenuItemBinding by bindings(view)
+
+        val optionsAdapter = OptionsAdapter()
 
         fun bindData(data: Any) {
             if (data is MenuItem) {
@@ -66,9 +70,15 @@ class MenuAdapter() :
 
         private fun drawItemUI() {
             binding.apply {
-                food = data
+                optionsRecycleView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+           //     optionsAdapter = OptionsAdapter()
+                this.adapter = optionsAdapter
+             //   this.lifecycleOwner = lifecycleOwner
+                item = data
                 executePendingBindings()
             }
+
+            optionsAdapter.addPriceOptions(data.prices)
         }
 
     }
