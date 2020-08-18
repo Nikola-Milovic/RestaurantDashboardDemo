@@ -24,7 +24,7 @@ class MenuViewModel(private val repository : IMenuRepository) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.fetchMenuItems().collect{ value ->
                 Timber.d(value.toString())
-                foodList.add(value as MenuItem)
+                foodList.add(value)
             }
 
             menuItemsLiveData.postValue(foodList)

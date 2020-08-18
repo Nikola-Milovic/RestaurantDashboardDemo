@@ -3,5 +3,5 @@ package com.nikolam.addnewitem.data.network
 import com.nikolam.core.model.MenuItem
 
 interface NetworkDataSource {
-    fun saveFoodItem(food : MenuItem)
+    fun saveFoodItem(menuItem : MenuItem)
 }

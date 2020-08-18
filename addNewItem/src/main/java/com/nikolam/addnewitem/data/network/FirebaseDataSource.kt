@@ -7,8 +7,8 @@ import timber.log.Timber
 class FirebaseDataSource(private val firebaseFirestore: FirebaseFirestore)  : NetworkDataSource{
     override fun saveFoodItem(menuItem: MenuItem) {
         val foodToSave = hashMapOf(
-            "name" to menuItem.name,
-            "price" to menuItem.price
+            "name" to menuItem.name
+         //   "price" to menuItem.price
         )
 
 

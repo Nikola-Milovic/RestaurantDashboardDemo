@@ -62,7 +62,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
     override fun updateMenuItem(itemID: String, updatedItem : MenuItem) {
         val itemToSave = hashMapOf(
             "name" to updatedItem.name,
-            "price" to updatedItem.price
+            "price" to updatedItem.prices
         )
 
         val docRef =  firebaseFirestore.collection("menu_items").document(itemID)

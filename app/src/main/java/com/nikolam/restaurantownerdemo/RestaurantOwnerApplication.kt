@@ -18,7 +18,7 @@ class RestaurantOwnerApplication : Application(){
         startKoin{
             androidLogger()
             androidContext(this@RestaurantOwnerApplication)
-            modules(viewmodelModule, dataModule, com.nikolam.addnewitem.di.viewmodelModule, com.nikolam.addnewitem.di.dataModule, firebaseModule)
+            modules(firebaseModule)
         }
 
         // This will initialise Timber
