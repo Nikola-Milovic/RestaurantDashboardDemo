@@ -2,6 +2,7 @@ package com.nikolam.menu.data.network
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.nikolam.core.model.MenuItem
+import com.nikolam.core.model.Price
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
@@ -18,6 +19,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
                 .addOnSuccessListener { documents ->
                     try {
                         for (document in documents) {
+                            Timber.d(document.toString())
                             val doc = document.toObject(MenuItem::class.java)
                             doc.itemID = document.id
                             offer(doc)
@@ -68,6 +70,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
         val docRef =  firebaseFirestore.collection("menu_items").document(itemID)
         docRef.set(itemToSave)
     }
+
 }
 
 

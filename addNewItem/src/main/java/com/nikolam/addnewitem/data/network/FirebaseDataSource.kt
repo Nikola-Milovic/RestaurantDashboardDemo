@@ -2,13 +2,15 @@ package com.nikolam.addnewitem.data.network
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.nikolam.core.model.MenuItem
+import com.nikolam.core.model.Price
 import timber.log.Timber
 
 class FirebaseDataSource(private val firebaseFirestore: FirebaseFirestore)  : NetworkDataSource{
+
     override fun saveFoodItem(menuItem: MenuItem) {
         val foodToSave = hashMapOf(
-            "name" to menuItem.name
-         //   "price" to menuItem.price
+            "name" to menuItem.name,
+           "price" to menuItem.prices
         )
 
 

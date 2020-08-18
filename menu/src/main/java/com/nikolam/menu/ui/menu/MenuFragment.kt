@@ -17,6 +17,7 @@ import com.nikolam.menu.ui.menu.adapter.MenuAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
+import timber.log.Timber
 
 
 class MenuFragment : Fragment() {
@@ -69,6 +70,11 @@ class MenuFragment : Fragment() {
 
     private fun observeData(){
         viewModel._menuItemsLiveData.observe(viewLifecycleOwner, Observer {
+
+            it[0].prices.forEach {
+                Timber.d(it.toString())
+            }
+
             menuAdapter.addMenuItems(it)
         })
     }
