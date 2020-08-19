@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.ItemDetailFragmentBinding
 import com.nikolam.menu.di.dataModule
 import com.nikolam.menu.di.viewmodelModule
+import com.nikolam.menu.ui.detail.adapter.OptionsDetailAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
@@ -32,8 +35,8 @@ class ItemDetailFragment : Fragment() {
     private fun injectFeatures() = loadModules
 
 
-
-
+    //
+    lateinit var optionsAdapter : OptionsDetailAdapter
 
     lateinit var binding : ItemDetailFragmentBinding
 
@@ -52,7 +55,14 @@ class ItemDetailFragment : Fragment() {
 
         val view = binding.root
 
+        optionsAdapter = OptionsDetailAdapter()
+
+        val layoutM=
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
         binding.apply {
+            optionsRecycleView.layoutManager = layoutM
+            this.adapter = optionsAdapter
             this.viewModel = detailViewModel
             lifecycleOwner = this@ItemDetailFragment
         }
@@ -67,21 +77,22 @@ class ItemDetailFragment : Fragment() {
     }
 
     private fun observeData(){
-
         binding.saveButtonDetail.setOnClickListener {
             val item = MenuItem()
 
+            optionsAdapter
+
             item.name = binding.nameTextInputDetail.text.toString()
-         //   item.price = binding.priceTextInputDetail.text.toString().toInt()
+            item.prices
 
             detailViewModel.updateItem(itemID, item)
         }
-
-
-
         detailViewModel._itemLiveData.observe(viewLifecycleOwner, Observer {
            binding.item = it
             itemID = it.itemID
+
+            optionsAdapter.addPriceOptions(it.prices)
+
             Timber.d(it.toString())
         })
     }
