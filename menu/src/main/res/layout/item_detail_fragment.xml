@@ -66,6 +66,18 @@
             app:layout_constraintStart_toEndOf="@+id/name_textInput_detail"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_option_actionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_baseline_add_24"
+            android:tint="@color/cardview_dark_background"
+            app:fabSize="normal"
+            app:layout_constraintEnd_toEndOf="@+id/options_recycle_view"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/options_recycle_view"
+            app:layout_constraintTop_toBottomOf="@+id/options_recycle_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

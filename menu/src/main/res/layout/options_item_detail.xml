@@ -24,30 +24,43 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/option_textView"
+            android:id="@+id/option_InputText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@tools:sample/cities"
+            android:layout_marginEnd="20sp"
             android:text="@{price.option}"
             android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintEnd_toStartOf="@+id/price_InputText"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/cities" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/price_textView"
+            android:id="@+id/price_InputText"
             android:layout_width="wrap_content"
-            tools:text="@tools:sample/cities"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="50sp"
             android:text="@{String.valueOf(price.price)}"
             android:textSize="30dp"
-            android:layout_marginStart="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.212"
-            app:layout_constraintStart_toEndOf="@+id/option_textView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/option_InputText"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/cities" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/delete_actionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:src="@drawable/ic_baseline_add_24"
+            android:tint="@color/cardview_dark_background"
+            app:fabSize="mini"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/materialCardView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -80,21 +80,28 @@ class ItemDetailFragment : Fragment() {
         binding.saveButtonDetail.setOnClickListener {
             val item = MenuItem()
 
-            optionsAdapter
-
             item.name = binding.nameTextInputDetail.text.toString()
-            item.prices
+            item.prices = optionsAdapter.getPrices()
 
             detailViewModel.updateItem(itemID, item)
         }
         detailViewModel._itemLiveData.observe(viewLifecycleOwner, Observer {
+            Timber.d("the item is $it")
+
            binding.item = it
+
             itemID = it.itemID
 
             optionsAdapter.addPriceOptions(it.prices)
 
             Timber.d(it.toString())
         })
+
+        binding.addOptionActionButton.setOnClickListener{
+
+            optionsAdapter.addNewOption()
+
+        }
     }
 
 

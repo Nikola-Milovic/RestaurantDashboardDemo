@@ -19,9 +19,9 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
                 .addOnSuccessListener { documents ->
                     try {
                         for (document in documents) {
-                            Timber.d(document.toString())
                             val doc = document.toObject(MenuItem::class.java)
                             doc.itemID = document.id
+                            Timber.d(doc.toString())
                             offer(doc)
                         }
                     } catch (e: Exception) {
@@ -64,7 +64,7 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
     override fun updateMenuItem(itemID: String, updatedItem : MenuItem) {
         val itemToSave = hashMapOf(
             "name" to updatedItem.name,
-            "price" to updatedItem.prices
+            "prices" to updatedItem.prices
         )
 
         val docRef =  firebaseFirestore.collection("menu_items").document(itemID)
