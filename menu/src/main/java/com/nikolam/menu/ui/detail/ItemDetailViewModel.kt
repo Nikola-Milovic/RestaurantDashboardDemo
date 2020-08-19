@@ -10,15 +10,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ItemDetailViewModel(private val repository : IMenuRepository) : ViewModel() {
+class ItemDetailViewModel(private val repository: IMenuRepository) : ViewModel() {
 
-    val itemLiveData : MutableLiveData<MenuItem> = MutableLiveData()
-    val _itemLiveData : LiveData<MenuItem>
+    val itemLiveData: MutableLiveData<MenuItem> = MutableLiveData()
+    val _itemLiveData: LiveData<MenuItem>
         get() = itemLiveData
 
 
-
-    fun fetchMenuItem(itemID : String) {
+    fun fetchMenuItem(itemID: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.fetchMenuItem(itemID).collect {
                 itemLiveData.postValue(it)
@@ -26,7 +25,7 @@ class ItemDetailViewModel(private val repository : IMenuRepository) : ViewModel(
         }
     }
 
-    fun updateItem(itemID : String, item : MenuItem){
+    fun updateItem(itemID: String, item: MenuItem) {
         repository.updateMenuItem(itemID, item)
     }
 }

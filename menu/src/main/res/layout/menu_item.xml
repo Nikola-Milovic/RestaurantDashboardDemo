@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="adapter"
-            type= "com.nikolam.menu.ui.menu.adapter.OptionsAdapter" />
+            type="com.nikolam.menu.ui.menu.adapter.OptionsAdapter" />
 
         <variable
             name="item"
-            type= "com.nikolam.core.model.MenuItem" />
+            type="com.nikolam.core.model.MenuItem" />
     </data>
 
 

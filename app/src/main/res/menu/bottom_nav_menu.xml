@@ -3,14 +3,14 @@
     <item
         android:id="@+id/menu_nav_graph"
         android:title="Menu"
-        android:icon="@drawable/ic_baseline_house_24"/>
+        android:icon="@drawable/ic_baseline_house_24" />
     <item
         android:id="@+id/exploreFragment"
         android:title="Opcije"
-        android:icon="@drawable/ic_admin_panel_settings_24px"/>
+        android:icon="@drawable/ic_admin_panel_settings_24px" />
 
     <item
         android:id="@+id/addNewItemFragment"
         android:title="Dodaj"
-        android:icon="@drawable/ic_baseline_add_24"/>
+        android:icon="@drawable/ic_baseline_add_24" />
 </menu>

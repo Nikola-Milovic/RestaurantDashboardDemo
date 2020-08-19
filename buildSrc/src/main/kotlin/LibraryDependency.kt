@@ -37,7 +37,8 @@ object LibraryDependency {
     const val TIMBER = "com.jakewharton.timber:timber:${LibraryVersion.TIMBER}"
     const val PLAY_CORE = "com.google.android.play:core:${LibraryVersion.PLAY_CORE}"
 
-    const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${CoreVersion.COROUTINES_ANDROID}"
+    const val COROUTINES_ANDROID =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${CoreVersion.COROUTINES_ANDROID}"
     const val CORE_KTX = "androidx.core:core-ktx:${LibraryVersion.CORE_KTX}"
 
     //UI
@@ -53,23 +54,29 @@ object LibraryDependency {
     const val GLIDE_AP = "com.github.bumptech.glide:compiler:${LibraryVersion.GLIDE}"
 
     //LifeCycle
-    const val LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:${LibraryVersion.LIFECYCLE}"
+    const val LIFECYCLE_EXTENSIONS =
+        "androidx.lifecycle:lifecycle-extensions:${LibraryVersion.LIFECYCLE}"
     const val LIFECYCLE_VIEW_MODEL_KTX =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${LibraryVersion.LIFECYCLE_VIEW_MODEL_KTX}"
-    const val ANDROID_LEGACY_SUPPORT = "androidx.legacy:legacy-support-v4:${LibraryVersion.ANDROID_LEGACY_SUPPORT}"
+    const val ANDROID_LEGACY_SUPPORT =
+        "androidx.legacy:legacy-support-v4:${LibraryVersion.ANDROID_LEGACY_SUPPORT}"
 
 
-    const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:${CoreVersion.NAVIGATION}"
+    const val NAVIGATION_FRAGMENT_KTX =
+        "androidx.navigation:navigation-fragment-ktx:${CoreVersion.NAVIGATION}"
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${CoreVersion.NAVIGATION}"
-    const val NAVIGATION_DYNAMIC_FEATURES = "androidx.navigation:navigation-dynamic-features-fragment:${CoreVersion.NAVIGATION}"
+    const val NAVIGATION_DYNAMIC_FEATURES =
+        "androidx.navigation:navigation-dynamic-features-fragment:${CoreVersion.NAVIGATION}"
 
     //Google
-    const  val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics:${LibraryVersion.FIREBASE_ANALYTICS}"
-    const  val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:${LibraryVersion.FIREBASE_FIRESTORE}"
+    const val FIREBASE_ANALYTICS =
+        "com.google.firebase:firebase-analytics:${LibraryVersion.FIREBASE_ANALYTICS}"
+    const val FIREBASE_FIRESTORE =
+        "com.google.firebase:firebase-firestore-ktx:${LibraryVersion.FIREBASE_FIRESTORE}"
 
     //Koin
     const val KOIN_ANDROID = "org.koin:koin-android:${LibraryVersion.KOIN}"
     const val KOIN_ANDROID_SCOPE = "org.koin:koin-android-scope:${LibraryVersion.KOIN}"
-    const val KOIN_ANDROID_VIEWMODEL= "org.koin:koin-android-viewmodel:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_VIEWMODEL = "org.koin:koin-android-viewmodel:${LibraryVersion.KOIN}"
     const val KOIN_ANDROID_EXTENSION = "org.koin:koin-android-ext:${LibraryVersion.KOIN}"
 }

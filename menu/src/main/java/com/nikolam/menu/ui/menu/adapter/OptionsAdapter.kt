@@ -3,20 +3,17 @@ package com.nikolam.menu.ui.menu.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.nikolam.menu.R
-import com.nikolam.core.model.MenuItem
 import com.nikolam.core.model.Price
-import com.nikolam.menu.databinding.MenuItemBinding
 import com.nikolam.core.utils.bindings
+import com.nikolam.menu.R
 import com.nikolam.menu.databinding.OptionsItemBinding
 
 
 class OptionsAdapter() :
     RecyclerView.Adapter<OptionsAdapter.OptionsViewHolder>() {
 
-    private var prices : ArrayList<Price> = arrayListOf()
+    private var prices: ArrayList<Price> = arrayListOf()
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
@@ -38,13 +35,13 @@ class OptionsAdapter() :
         }
     }
 
-    fun addPriceOptions(priceOptionList : ArrayList<Price>) {
+    fun addPriceOptions(priceOptionList: ArrayList<Price>) {
         prices.clear()
         prices.addAll(priceOptionList)
         this.notifyDataSetChanged()
     }
 
-    override fun getItemCount() : Int {
+    override fun getItemCount(): Int {
         return prices.size
     }
 

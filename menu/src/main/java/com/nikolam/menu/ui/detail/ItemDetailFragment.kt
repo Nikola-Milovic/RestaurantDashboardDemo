@@ -2,15 +2,14 @@ package com.nikolam.menu.ui.detail
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.ItemDetailFragmentBinding
@@ -36,28 +35,28 @@ class ItemDetailFragment : Fragment() {
 
 
     //
-    lateinit var optionsAdapter : OptionsDetailAdapter
+    lateinit var optionsAdapter: OptionsDetailAdapter
 
-    lateinit var binding : ItemDetailFragmentBinding
+    lateinit var binding: ItemDetailFragmentBinding
 
-    lateinit var itemID : String
+    lateinit var itemID: String
 
     private val detailViewModel: ItemDetailViewModel by inject()
 
-    val args : ItemDetailFragmentArgs by navArgs()
+    val args: ItemDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.item_detail_fragment,container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.item_detail_fragment, container, false)
 
         val view = binding.root
 
         optionsAdapter = OptionsDetailAdapter()
 
-        val layoutM=
+        val layoutM =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.apply {
@@ -76,7 +75,7 @@ class ItemDetailFragment : Fragment() {
         detailViewModel.fetchMenuItem(args.MenuItemID)
     }
 
-    private fun observeData(){
+    private fun observeData() {
         binding.saveButtonDetail.setOnClickListener {
             val item = MenuItem()
 
@@ -88,7 +87,7 @@ class ItemDetailFragment : Fragment() {
         detailViewModel._itemLiveData.observe(viewLifecycleOwner, Observer {
             Timber.d("the item is $it")
 
-           binding.item = it
+            binding.item = it
 
             itemID = it.itemID
 
@@ -97,7 +96,7 @@ class ItemDetailFragment : Fragment() {
             Timber.d(it.toString())
         })
 
-        binding.addOptionActionButton.setOnClickListener{
+        binding.addOptionActionButton.setOnClickListener {
 
             optionsAdapter.addNewOption()
 

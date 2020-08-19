@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MenuFragment">
+
     <data>
 
         <variable
             name="adapter"
-            type= "com.nikolam.menu.ui.detail.adapter.OptionsDetailAdapter" />
+            type="com.nikolam.menu.ui.detail.adapter.OptionsDetailAdapter" />
 
         <variable
             name="item"
-            type= "com.nikolam.core.model.MenuItem" />
+            type="com.nikolam.core.model.MenuItem" />
 
         <variable
             name="viewModel"
-            type= "com.nikolam.menu.ui.detail.ItemDetailViewModel" />
+            type="com.nikolam.menu.ui.detail.ItemDetailViewModel" />
 
 
     </data>

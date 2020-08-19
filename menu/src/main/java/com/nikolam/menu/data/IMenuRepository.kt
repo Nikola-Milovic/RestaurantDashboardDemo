@@ -5,9 +5,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface IMenuRepository {
 
-    fun fetchMenuItems() : Flow<MenuItem>
+    fun fetchMenuItems(): Flow<MenuItem>
 
-    fun fetchMenuItem(itemID : String) : Flow<MenuItem>
+    fun fetchMenuItem(itemID: String): Flow<MenuItem>
 
-    fun updateMenuItem(itemID: String, updatedItem : MenuItem)
+    fun updateMenuItem(itemID: String, updatedItem: MenuItem)
 }

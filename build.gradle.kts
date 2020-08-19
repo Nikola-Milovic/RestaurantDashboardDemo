@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 // all projects = root project + sub projects
 allprojects {
     repositories {
@@ -17,5 +15,7 @@ allprojects {
     plugins.apply(GradlePluginId.GRADLE_VERSION_PLUGIN)
 
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 }

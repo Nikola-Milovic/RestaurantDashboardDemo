@@ -17,7 +17,6 @@ import com.nikolam.menu.ui.menu.adapter.MenuAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
-import timber.log.Timber
 
 
 class MenuFragment : Fragment() {
@@ -32,11 +31,9 @@ class MenuFragment : Fragment() {
     private fun injectFeatures() = loadModules
 
 
+    lateinit var binding: MenuFragmentBinding
 
-
-    lateinit var binding : MenuFragmentBinding
-
-    lateinit var menuAdapter : MenuAdapter
+    lateinit var menuAdapter: MenuAdapter
 
     private val viewModel: MenuViewModel by inject()
 
@@ -47,11 +44,11 @@ class MenuFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.menu_fragment, container, false)
         binding.apply {
 
-            val layoutMana=
+            val layoutMana =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
             menuAdapter = MenuAdapter()
-            recyclerViews.apply{
+            recyclerViews.apply {
                 layoutManager = layoutMana
             }
             this.adapter = menuAdapter
@@ -68,13 +65,8 @@ class MenuFragment : Fragment() {
         observeData()
     }
 
-    private fun observeData(){
+    private fun observeData() {
         viewModel._menuItemsLiveData.observe(viewLifecycleOwner, Observer {
-
-            it[0].prices.forEach {
-                Timber.d(it.toString())
-            }
-
             menuAdapter.addMenuItems(it)
         })
     }

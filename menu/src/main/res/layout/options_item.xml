@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="price"
-            type= "com.nikolam.core.model.Price" />
+            type="com.nikolam.core.model.Price" />
     </data>
 
 
@@ -33,7 +34,7 @@
             app:layout_constraintHorizontal_bias="0.212"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/cities"/>
+            tools:text="@tools:sample/cities" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/price_textView"
@@ -46,7 +47,7 @@
             app:layout_constraintHorizontal_bias="0.212"
             app:layout_constraintStart_toEndOf="@+id/option_textView"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/cities"/>
+            tools:text="@tools:sample/cities" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,18 +6,17 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.nikolam.menu.R
 import com.nikolam.core.model.MenuItem
-import com.nikolam.menu.databinding.MenuItemBinding
 import com.nikolam.core.utils.bindings
+import com.nikolam.menu.R
+import com.nikolam.menu.databinding.MenuItemBinding
 import com.nikolam.menu.ui.menu.MenuFragmentDirections
-import java.security.cert.PKIXRevocationChecker
 
 
 class MenuAdapter() :
     RecyclerView.Adapter<MenuAdapter.FoodViewHolder>() {
 
-    private var menuItems : ArrayList<MenuItem> = arrayListOf()
+    private var menuItems: ArrayList<MenuItem> = arrayListOf()
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
@@ -39,13 +38,13 @@ class MenuAdapter() :
         }
     }
 
-    fun addMenuItems(menuItemsList : ArrayList<MenuItem>) {
+    fun addMenuItems(menuItemsList: ArrayList<MenuItem>) {
         menuItems.clear()
         menuItems.addAll(menuItemsList)
         this.notifyDataSetChanged()
     }
 
-    override fun getItemCount() : Int {
+    override fun getItemCount(): Int {
         return menuItems.size
     }
 
@@ -62,7 +61,8 @@ class MenuAdapter() :
                 this.data = data
                 drawItemUI()
                 view.setOnClickListener {
-                    val directions = MenuFragmentDirections.actionMenuFragmentToMenuItemDetailFragment2(data.itemID)
+                    val directions =
+                        MenuFragmentDirections.actionMenuFragmentToMenuItemDetailFragment2(data.itemID)
                     view.findNavController().navigate(directions)
                 }
             }
@@ -70,10 +70,11 @@ class MenuAdapter() :
 
         private fun drawItemUI() {
             binding.apply {
-                optionsRecycleView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
-           //     optionsAdapter = OptionsAdapter()
+                optionsRecycleView.layoutManager =
+                    LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+                //     optionsAdapter = OptionsAdapter()
                 this.adapter = optionsAdapter
-             //   this.lifecycleOwner = lifecycleOwner
+                //   this.lifecycleOwner = lifecycleOwner
                 item = data
                 executePendingBindings()
             }

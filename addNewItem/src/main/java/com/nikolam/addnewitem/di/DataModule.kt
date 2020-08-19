@@ -1,6 +1,5 @@
 package com.nikolam.addnewitem.di
 
-import com.google.firebase.firestore.FirebaseFirestore
 import com.nikolam.addnewitem.data.IAddNewItemRepository
 import com.nikolam.addnewitem.data.ImplAddNewItemRepository
 import com.nikolam.addnewitem.data.network.FirebaseDataSource
@@ -9,8 +8,8 @@ import org.koin.dsl.module
 
 val dataModule = module {
 
-    single<IAddNewItemRepository>{ImplAddNewItemRepository(get())}
+    single<IAddNewItemRepository> { ImplAddNewItemRepository(get()) }
 
-    single<NetworkDataSource>{ FirebaseDataSource(get()) }
+    single<NetworkDataSource> { FirebaseDataSource(get()) }
 
 }

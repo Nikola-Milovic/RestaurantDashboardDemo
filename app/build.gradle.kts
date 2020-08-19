@@ -1,5 +1,3 @@
-import com.pinterest.ktlint.main
-
 plugins {
     id(GradlePluginId.ANDROID_APPLICATION)
     id(GradlePluginId.KOTLIN_ANDROID)
@@ -41,7 +39,6 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
 
 
 }

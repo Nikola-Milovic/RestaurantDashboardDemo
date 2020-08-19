@@ -2,8 +2,6 @@ package com.nikolam.restaurantownerdemo
 
 import android.app.Application
 import com.nikolam.core.di.firebaseModule
-import com.nikolam.menu.di.dataModule
-import com.nikolam.menu.di.viewmodelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -11,11 +9,11 @@ import timber.log.Timber
 import timber.log.Timber.DebugTree
 
 
-class RestaurantOwnerApplication : Application(){
+class RestaurantOwnerApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // Start Koin
-        startKoin{
+        startKoin {
             androidLogger()
             androidContext(this@RestaurantOwnerApplication)
             modules(firebaseModule)

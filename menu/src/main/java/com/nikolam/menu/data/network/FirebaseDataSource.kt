@@ -2,7 +2,6 @@ package com.nikolam.menu.data.network
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.nikolam.core.model.MenuItem
-import com.nikolam.core.model.Price
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
@@ -10,28 +9,28 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import timber.log.Timber
 
-class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : NetworkDataSource{
+class FirebaseDataSource(private val firebaseFirestore: FirebaseFirestore) : NetworkDataSource {
 
     @ExperimentalCoroutinesApi
-    override fun fetchMenuItems(): Flow<MenuItem> = callbackFlow{
+    override fun fetchMenuItems(): Flow<MenuItem> = callbackFlow {
         firebaseFirestore.collection("menu_items")
-                .get()
-                .addOnSuccessListener { documents ->
-                    try {
-                        for (document in documents) {
-                            val doc = document.toObject(MenuItem::class.java)
-                            doc.itemID = document.id
-                            Timber.d(doc.toString())
-                            offer(doc)
-                        }
-                    } catch (e: Exception) {
-                        Timber.d("Error getting documents:  ${e.localizedMessage}")
+            .get()
+            .addOnSuccessListener { documents ->
+                try {
+                    for (document in documents) {
+                        val doc = document.toObject(MenuItem::class.java)
+                        doc.itemID = document.id
+                        Timber.d(doc.toString())
+                        offer(doc)
                     }
+                } catch (e: Exception) {
+                    Timber.d("Error getting documents:  ${e.localizedMessage}")
                 }
-                .addOnFailureListener { exception ->
-                    Timber.d("Failure getting documents:  ${exception.localizedMessage}")
-                    close(exception)
-                }
+            }
+            .addOnFailureListener { exception ->
+                Timber.d("Failure getting documents:  ${exception.localizedMessage}")
+                close(exception)
+            }
             .addOnCompleteListener {
                 close()
             }
@@ -39,8 +38,8 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
     }
 
     @ExperimentalCoroutinesApi
-    override fun fetchMenuItem(itemID: String) : Flow<MenuItem> = callbackFlow {
-        val docRef =  firebaseFirestore.collection("menu_items").document(itemID)
+    override fun fetchMenuItem(itemID: String): Flow<MenuItem> = callbackFlow {
+        val docRef = firebaseFirestore.collection("menu_items").document(itemID)
         docRef.get()
             .addOnSuccessListener { document ->
                 val doc = document.toObject(MenuItem::class.java)
@@ -58,19 +57,17 @@ class FirebaseDataSource (private val firebaseFirestore: FirebaseFirestore) : Ne
                 cancel()
             }
 
-        awaitClose{ Timber.d("Closed") }
+        awaitClose { Timber.d("Closed") }
     }
 
-    override fun updateMenuItem(itemID: String, updatedItem : MenuItem) {
+    override fun updateMenuItem(itemID: String, updatedItem: MenuItem) {
         val itemToSave = hashMapOf(
             "name" to updatedItem.name,
             "prices" to updatedItem.prices
         )
 
-        val docRef =  firebaseFirestore.collection("menu_items").document(itemID)
+        val docRef = firebaseFirestore.collection("menu_items").document(itemID)
         docRef.set(itemToSave)
     }
 
 }
-
-
