@@ -8,7 +8,7 @@ object AndroidConfig {
     const val VERSION_NAME = "1.0"
 
     const val ID = "com.nikolam.restaurantownerdemo"
-    const val TEST_INSTRUMENTATION_RUNNER = "android.support.test.runner.AndroidJUnitRunner"
+    const val TEST_INSTRUMENTATION_RUNNER = "com.nikolam.menu.RestaurantOwnerTestRunner" //"android.support.test.runner.AndroidJUnitRunner"
 }
 
 interface BuildType {

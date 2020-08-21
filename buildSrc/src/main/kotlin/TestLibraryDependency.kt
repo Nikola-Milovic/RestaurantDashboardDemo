@@ -6,6 +6,9 @@ private object TestLibraryVersion {
     const val MOCKITO = "3.2.4"
     const val MOCKITO_KOTLIN = "2.2.0"
     const val ANDROID_X_TEST = "2.1.0"
+
+
+    const val FRAGMENT_VERSION = "1.2.5"
 }
 
 object TestLibraryDependency {
@@ -23,4 +26,6 @@ object TestLibraryDependency {
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${CoreVersion.COROUTINES_ANDROID}"
     const val ANDROID_X_CORE_TESTING =
         "android.arch.core:core-testing:${TestLibraryVersion.ANDROID_X_TEST}"
+
+    const val FRAGMENT_TESTING = "androidx.fragment:fragment-testing:${TestLibraryVersion.FRAGMENT_VERSION}"
 }

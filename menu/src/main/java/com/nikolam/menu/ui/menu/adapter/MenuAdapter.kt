@@ -14,7 +14,7 @@ import com.nikolam.menu.ui.menu.MenuFragmentDirections
 
 
 class MenuAdapter() :
-    RecyclerView.Adapter<MenuAdapter.FoodViewHolder>() {
+    RecyclerView.Adapter<MenuAdapter.MenuItemViewHolder>() {
 
     private var menuItems: ArrayList<MenuItem> = arrayListOf()
 
@@ -22,14 +22,14 @@ class MenuAdapter() :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FoodViewHolder {
+    ): MenuItemViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.menu_item, parent, false)
-        return FoodViewHolder(view)
+        return MenuItemViewHolder(view)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         val data = menuItems[position]
         try {
             holder.bindData(data)
@@ -49,7 +49,7 @@ class MenuAdapter() :
     }
 
 
-    inner class FoodViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    inner class MenuItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         private lateinit var data: MenuItem
         val binding: MenuItemBinding by bindings(view)

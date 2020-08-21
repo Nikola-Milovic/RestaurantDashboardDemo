@@ -22,7 +22,7 @@ import org.koin.core.context.unloadKoinModules
 class MenuFragment : Fragment() {
 
     //Koin
-    val moduleList = arrayListOf(dataModule, viewmodelModule)
+    private val moduleList = arrayListOf(dataModule, viewmodelModule)
 
     private val loadModules by lazy {
         loadKoinModules(moduleList)
@@ -48,7 +48,7 @@ class MenuFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
             menuAdapter = MenuAdapter()
-            recyclerViews.apply {
+            menuRecycleView.apply {
                 layoutManager = layoutMana
             }
             this.adapter = menuAdapter
@@ -76,7 +76,7 @@ class MenuFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        injectFeatures()
+     //   injectFeatures()
     }
 
     override fun onDetach() {

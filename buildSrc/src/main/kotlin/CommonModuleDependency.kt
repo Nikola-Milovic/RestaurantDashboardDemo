@@ -16,6 +16,14 @@ fun DependencyHandler.addTestDependencies() {
     testImplementation(TestLibraryDependency.MOCKITO_KOTLIN)
     testImplementation(TestLibraryDependency.COROUTINES_TEST)
     testImplementation(TestLibraryDependency.ANDROID_X_CORE_TESTING)
+
+    debugImplementation(TestLibraryDependency.FRAGMENT_TESTING)
+
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.1.0")
+
+    androidTestImplementation("com.agoda.kakao:kakao:2.3.4")
+
+    kaptAndroidTest("androidx.databinding:databinding-compiler:3.5.3")
 }
 
 /*
@@ -49,6 +57,10 @@ private fun DependencyHandler.testImplementation(dependencyNotation: Any): Depen
 
 private fun DependencyHandler.androidTestImplementation(dependencyNotation: Any): Dependency? =
     add("androidTestImplementation", dependencyNotation)
+
+private fun DependencyHandler.debugImplementation(dependencyNotation: Any): Dependency? =
+    add("debugImplementation", dependencyNotation)
+
 
 private fun DependencyHandler.project(
     path: String,

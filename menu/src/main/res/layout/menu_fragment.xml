@@ -22,7 +22,7 @@
         android:backgroundTint="#F8F8F8">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViews"
+            android:id="@+id/menu_recycleView"
             adapter="@{adapter}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

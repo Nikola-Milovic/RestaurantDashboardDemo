@@ -12,7 +12,7 @@ private object LibraryVersion {
     const val MATERIAL = "1.1.0-alpha09"
     const val CONSTRAINT_LAYOUT = "1.1.3"
     const val CORE_KTX = "1.1.0"
-    const val FRAGMENT_KTX = "1.1.0"
+    const val FRAGMENT_KTX = "1.2.5" //1.1.0
     const val LIFECYCLE = "2.2.0"
     const val LIFECYCLE_VIEW_MODEL_KTX = "2.2.0"
     const val ANDROID_LEGACY_SUPPORT = "1.0.0"

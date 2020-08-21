@@ -11,14 +11,14 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class MenuViewModel(private val repository: IMenuRepository) : ViewModel() {
+open class MenuViewModel(private val repository: IMenuRepository) : ViewModel() {
 
-    val menuItemsLiveData: MutableLiveData<ArrayList<MenuItem>> = MutableLiveData()
-    val _menuItemsLiveData: LiveData<ArrayList<MenuItem>>
+    open val menuItemsLiveData: MutableLiveData<ArrayList<MenuItem>> = MutableLiveData()
+    open val _menuItemsLiveData: LiveData<ArrayList<MenuItem>>
         get() = menuItemsLiveData
 
 
-    fun fetchMenuItems() {
+    open fun fetchMenuItems() {
         val foodList = arrayListOf<MenuItem>()
         viewModelScope.launch(Dispatchers.IO) {
             repository.fetchMenuItems().collect { value ->

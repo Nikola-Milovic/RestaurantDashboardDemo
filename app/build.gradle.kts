@@ -40,6 +40,10 @@ android {
         dataBinding = true
     }
 
+    testOptions {
+        animationsDisabled = true
+    }
+
 
 }
 
