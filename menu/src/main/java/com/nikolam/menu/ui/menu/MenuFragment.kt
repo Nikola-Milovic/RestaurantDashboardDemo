@@ -76,7 +76,7 @@ class MenuFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-     //   injectFeatures()
+        //   injectFeatures()
     }
 
     override fun onDetach() {

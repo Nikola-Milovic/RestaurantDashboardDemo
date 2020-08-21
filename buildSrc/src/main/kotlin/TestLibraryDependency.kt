@@ -27,5 +27,6 @@ object TestLibraryDependency {
     const val ANDROID_X_CORE_TESTING =
         "android.arch.core:core-testing:${TestLibraryVersion.ANDROID_X_TEST}"
 
-    const val FRAGMENT_TESTING = "androidx.fragment:fragment-testing:${TestLibraryVersion.FRAGMENT_VERSION}"
+    const val FRAGMENT_TESTING =
+        "androidx.fragment:fragment-testing:${TestLibraryVersion.FRAGMENT_VERSION}"
 }

@@ -16,6 +16,7 @@ class RestaurantOwnerTestRunner : AndroidJUnitRunner() {
         context: Context
     ): Application {
         return super.newApplication(
-            cl, TestApplication::class.java.name, context)
+            cl, TestApplication::class.java.name, context
+        )
     }
 }
