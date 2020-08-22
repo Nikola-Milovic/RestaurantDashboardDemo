@@ -54,6 +54,7 @@ class OptionsAdapter() :
         fun bindData(data: Any) {
             if (data is Price) {
                 this.data = data
+
                 drawItemUI()
             }
         }
