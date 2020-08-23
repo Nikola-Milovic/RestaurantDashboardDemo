@@ -72,9 +72,7 @@ class MenuAdapter() :
             binding.apply {
                 optionsRecycleView.layoutManager =
                     LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
-                //     optionsAdapter = OptionsAdapter()
                 this.adapter = optionsAdapter
-                //   this.lifecycleOwner = lifecycleOwner
                 item = data
                 executePendingBindings()
             }
