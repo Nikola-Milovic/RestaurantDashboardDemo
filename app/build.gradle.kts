@@ -72,6 +72,7 @@ dependencies {
     implementation(project(":menu"))
     implementation(project(":addNewItem"))
     implementation(project(":core"))
+    implementation(project(":orders"))
 
     addTestDependencies()
 }

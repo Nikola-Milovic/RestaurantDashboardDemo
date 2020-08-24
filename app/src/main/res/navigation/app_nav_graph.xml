@@ -11,5 +11,10 @@
         android:id="@+id/addNewItemFragment"
         android:name="com.nikolam.addnewitem.ui.AddNewItemFragment"
         android:label="AddNewItemFragment" />
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.nikolam.orders.ui.OrderFragment"
+        android:label="OrderFragment" />
+
 
 </navigation>
