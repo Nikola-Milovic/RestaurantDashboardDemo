@@ -19,3 +19,9 @@ allprojects {
         kotlinOptions.jvmTarget = "1.8"
     }
 }
+buildscript {
+    val kotlin_version by extra("1.3.72")
+    dependencies {
+        "classpath"("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}

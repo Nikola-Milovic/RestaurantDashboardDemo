@@ -72,7 +72,7 @@ class ItemDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeData()
-        detailViewModel.fetchMenuItem(args.MenuItemID)
+                detailViewModel.fetchMenuItem(args.MenuItemID)
     }
 
     private fun observeData() {
