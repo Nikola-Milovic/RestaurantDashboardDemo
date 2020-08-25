@@ -71,7 +71,7 @@ class MenuItemsDisplayTest {
     fun shouldChangeAddButtonEnableAfterChangingNoteText() {
         screen {
             menuRecyclerView {
-                hasSize(5)
+                hasSize(3)
             }
         }
     }
