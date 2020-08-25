@@ -1,6 +1,8 @@
 package com.nikolam.menu.ui.menu
 
+import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.filters.MediumTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
@@ -11,6 +13,7 @@ import com.agoda.kakao.text.KTextView
 import com.nikolam.menu.R
 import com.nikolam.menu.di.testDataModule
 import com.nikolam.menu.di.testViewModelModule
+import com.nikolam.menu.utils.launchFragmentScenario
 import org.hamcrest.Matcher
 import org.junit.After
 import org.junit.Before
@@ -23,6 +26,11 @@ import org.koin.core.context.unloadKoinModules
 @RunWith(AndroidJUnit4ClassRunner::class)
 @MediumTest
 class MenuItemsDisplayTest {
+
+    private fun launchMyFragmentScenario(bundle: Bundle?): FragmentScenario<MenuFragment>
+    //viewModel factory can be easily injected if you use FragmentFactory
+            = launchFragmentScenario(bundle, MenuFragment(), )
+
 
     class MenuScreen : Screen<MenuScreen>() {
         val menuRecyclerView =
