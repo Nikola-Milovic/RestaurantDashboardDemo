@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
+import androidx.navigation.NavController
+import androidx.navigation.testing.TestNavHostController
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.MediumTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.agoda.kakao.recycler.KRecyclerItem
@@ -27,9 +30,13 @@ import org.koin.core.context.unloadKoinModules
 @MediumTest
 class MenuItemsDisplayTest {
 
+    val navController = TestNavHostController(
+        ApplicationProvider.getApplicationContext())
+
+
     private fun launchMyFragmentScenario(bundle: Bundle?): FragmentScenario<MenuFragment>
     //viewModel factory can be easily injected if you use FragmentFactory
-            = launchFragmentScenario(bundle, MenuFragment(), )
+            = launchFragmentScenario(bundle, MenuFragment(), navController)
 
 
     class MenuScreen : Screen<MenuScreen>() {
@@ -48,8 +55,11 @@ class MenuItemsDisplayTest {
 
     @Before
     fun setUp() {
+        navController.setGraph(R.navigation.menu_nav_graph)
+
         loadKoinModules(listOf(testViewModelModule, testDataModule))
-        launchFragmentInContainer<MenuFragment>()
+        launchMyFragmentScenario(null)
+      //  launchFragmentInContainer<MenuFragment>()
     }
 
     @After

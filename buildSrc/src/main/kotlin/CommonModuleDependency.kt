@@ -24,6 +24,9 @@ fun DependencyHandler.addTestDependencies() {
     androidTestImplementation("com.agoda.kakao:kakao:2.3.4")
 
     kaptAndroidTest("androidx.databinding:databinding-compiler:3.5.3")
+
+
+    androidTestImplementation("androidx.navigation:navigation-testing:2.3.0")
 }
 
 /*

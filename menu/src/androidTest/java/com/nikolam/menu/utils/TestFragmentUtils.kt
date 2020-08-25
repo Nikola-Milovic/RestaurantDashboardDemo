@@ -11,7 +11,7 @@ import com.nikolam.menu.R
 inline fun <reified F : Fragment> launchFragmentScenario(
     bundle: Bundle?, fragment: F, navController: NavController
 ): FragmentScenario<F> {
-    return launchFragmentInContainer(bundle, R.style.Theme_AppCompat) {
+    return launchFragmentInContainer(bundle, R.style.Theme_MaterialComponents_DayNight) {
         fragment.also { fragment ->
             fragment.viewLifecycleOwnerLiveData.observeForever { lifeCycleOwner ->
                 if (lifeCycleOwner != null) {
