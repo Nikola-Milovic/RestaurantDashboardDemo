@@ -19,14 +19,14 @@ fun DependencyHandler.addTestDependencies() {
 
     debugImplementation(TestLibraryDependency.FRAGMENT_TESTING)
 
-    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.1.0")
+    androidTestImplementation(TestLibraryDependency.ESSPRESSO_CONTRIB)
 
-    androidTestImplementation("com.agoda.kakao:kakao:2.3.4")
+    androidTestImplementation(TestLibraryDependency.KAKAO)
 
-    kaptAndroidTest("androidx.databinding:databinding-compiler:3.5.3")
+    kaptAndroidTest(TestLibraryDependency.DATABINDING_COMPILER)
 
 
-    androidTestImplementation("androidx.navigation:navigation-testing:2.3.0")
+    androidTestImplementation(TestLibraryDependency.NAVIGATION)
 }
 
 /*

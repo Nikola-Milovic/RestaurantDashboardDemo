@@ -12,6 +12,8 @@ private object TestLibraryVersion {
     const val KAKAO = "2.3.4"
 
     const val DATABINDING = "3.5.3"
+
+    const val NAVIGATION = "2.3.0"
 }
 
 object TestLibraryDependency {
@@ -36,4 +38,6 @@ object TestLibraryDependency {
     const val DATABINDING_COMPILER = "androidx.databinding:databinding-compiler:${TestLibraryVersion.DATABINDING}"
     const val KAKAO = "com.agoda.kakao:kakao:${TestLibraryVersion.KAKAO}"
     const val ESSPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${TestLibraryVersion.ESPRESSO}"
+
+    const val NAVIGATION = "androidx.navigation:navigation-testing:${TestLibraryVersion.NAVIGATION}"
 }
