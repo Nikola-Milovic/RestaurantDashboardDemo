@@ -42,13 +42,22 @@ class MenuItemsDisplayTest {
     class MenuScreen : Screen<MenuScreen>() {
         val menuRecyclerView =
             KRecyclerView(builder = { withId(R.id.menu_recycleView) }, itemTypeBuilder = {
-                itemType(::Item)
+                itemType(::MenuItem)
             })
     }
 
-    class Item(parent: Matcher<View>) : KRecyclerItem<Item>(parent) {
-        val name: KTextView = KTextView(parent) { withId((R.id.name_textView)) }
+    class MenuItem(parent: Matcher<View>) : KRecyclerItem<MenuItem>(parent) {
+        val name: KTextView = KTextView(parent) { withId((R.id.name_textView))
+        val options    = KRecyclerView(builder = { withId(R.id.options_recycle_view) }, itemTypeBuilder = {
+                itemType(::OptionItem)
+            })
+        }
     }
+
+    class OptionItem(parent: Matcher<View>) : KRecyclerItem<OptionItem>(parent) {
+
+    }
+
 
     private val screen = MenuScreen()
 
@@ -68,10 +77,25 @@ class MenuItemsDisplayTest {
     }
 
     @Test
-    fun shouldChangeAddButtonEnableAfterChangingNoteText() {
+    fun RecyclerViewContainsCorrectAmountOfItemsWhenLoaded() {
         screen {
             menuRecyclerView {
                 hasSize(3)
+            }
+        }
+    }
+
+    @Test
+    fun RecyclerViewItemsContainCorrectData() {
+        screen {
+            menuRecyclerView {
+                for (i in 0..2) {
+                    // 1
+                    scrollTo(i)
+                    childAt<MenuItem>(i) {
+                        name.hasText("Title" + (i + 1))
+                    }
+                }
             }
         }
     }
