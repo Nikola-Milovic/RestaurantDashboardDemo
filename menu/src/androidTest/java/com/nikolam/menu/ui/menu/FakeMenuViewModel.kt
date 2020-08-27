@@ -16,9 +16,9 @@ class FakeMenuViewModel(repository: IMenuRepository) : MenuViewModel(repository)
     override fun fetchMenuItems() {
 
         menuItemsLiveData.value = arrayListOf(
-            MenuItem("Title1", arrayListOf(Price("1", 50))),
-            MenuItem("Title2", arrayListOf(Price("2", 150))),
-            MenuItem("Title3", arrayListOf(Price("3", 250)))
+            MenuItem("Title1", arrayListOf(Price("0", 0))),
+            MenuItem("Title2", arrayListOf(Price("1", 50))),
+            MenuItem("Title3", arrayListOf(Price("2", 100)))
         )
 
     }

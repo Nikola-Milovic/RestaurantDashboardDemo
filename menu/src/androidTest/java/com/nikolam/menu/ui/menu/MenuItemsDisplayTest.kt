@@ -48,14 +48,15 @@ class MenuItemsDisplayTest {
 
     class MenuItem(parent: Matcher<View>) : KRecyclerItem<MenuItem>(parent) {
         val name: KTextView = KTextView(parent) { withId((R.id.name_textView))
-        val options    = KRecyclerView(builder = { withId(R.id.options_recycle_view) }, itemTypeBuilder = {
-                itemType(::OptionItem)
+        val optionsRecycleView  = KRecyclerView({withMatcher(parent)}, itemTypeBuilder = {
+            itemType(::OptionItem)
             })
         }
     }
 
     class OptionItem(parent: Matcher<View>) : KRecyclerItem<OptionItem>(parent) {
-
+        var optionsName : KTextView = KTextView(parent){withId(R.id.option_textView)}
+        var price : KTextView = KTextView(parent){withId(R.id.price_textView)}
     }
 
 
@@ -68,7 +69,6 @@ class MenuItemsDisplayTest {
 
         loadKoinModules(listOf(testViewModelModule, testDataModule))
         launchMyFragmentScenario(null)
-      //  launchFragmentInContainer<MenuFragment>()
     }
 
     @After
